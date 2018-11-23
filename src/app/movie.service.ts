@@ -44,6 +44,6 @@ export class MovieService {
     }
 
     getMovie(id: number){
-      return this.httpC.get(API_URL + "movie/" + id + "/videos?api_key=" + API_KEY + "&language=en-US");
+      return this.httpC.get(API_URL + "movie/" + id + "?api_key=" + API_KEY + "&language=en-US");
     }
 }
