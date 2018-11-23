@@ -1,0 +1,182 @@
+
+   *{
+
+    box-sizing: border-box;
+   }
+
+    .container{
+        display: grid;
+        background: url("../../assets/images/backgorund.jpg");
+        grid-template-rows: 1fr, 1fr, 4fr 1fr;
+        grid-template-columns: 2fr 5fr 2fr;
+        grid-template-areas: 
+          "header header header"
+          ". search-area ."
+         
+          ". main aside"
+          "footer footer footer";
+        grid-gap: .75em;
+      }
+      header{
+        grid-area: header;
+        display: inline-block;
+       /* background-color: teal;*/
+    }
+
+    .search-area{
+        grid-area: search-area;
+        align-items: center;
+    }
+    nav{
+        grid-area: nav;
+        background-color: tomato;
+        height: 100%;
+    }
+    main{
+        grid-area: main;
+        background-color: lightblue;
+        
+    }
+    aside{
+        grid-area: aside;
+        background-color: orange;
+    }
+    footer{
+        grid-area: footer;
+        background-color: lightgreen;
+    }
+
+    input[type=text] {
+        border: 2px solid red;
+        border-radius: 4px;
+        width: 60%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        font-size: 15px;
+        margin-left:1rem;
+    }
+
+    hr { 
+        display: block;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: auto;
+        margin-right: auto;
+        border-style: inset;
+        border-width: 1px;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        background-color:royalblue;
+        color: aliceblue;
+        cursor: pointer;
+        width:20%;
+        height: 45px;;
+        padding: 10px 25px;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: .25rem;
+        border: 1px solid transparent;
+        margin-left:1rem;
+    }
+    
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+ 
+    ul {
+        list-style-type: none;
+        position:relative;
+        /*height: 25%;*/
+        display: inline-flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        background-clip: border-box;
+       /* border: 1px solid rgba(0,0,0,.125);*/
+        border-radius: .25rem;
+        margin-top: 1rem!important;
+        margin-bottom: 1rem!important;
+        margin-right: 1rem;
+        margin-left: 1rem;
+        word-wrap: break-word;
+        padding: 1.25rem;
+        
+    }
+
+    li{
+        flex:0 0 25%;
+        border: 1px solid rgba(0,0,0,.125);
+        /*padding: 1em;*/
+        display: none;
+        align-items: center;
+        flex-direction: column;
+        min-height: 1px;
+    }
+    
+    .btn {
+        background-color: royalblue;
+        width:10%;
+        color: aliceblue;
+        padding: 10px 25px;
+        font-size: 20px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: .25rem;
+        border: 1px solid transparent;
+        margin-left:1rem;
+
+    }
+
+    .card-btn {
+        background-color: royalblue;
+        width: 100%;
+        color: aliceblue;
+        padding: 15px 32px;
+        font-size: 15px;
+        text-overflow: clip;
+        text-align: center;
+        cursor: pointer;
+        border-radius: .25rem;
+        border: 1px solid transparent;
+    
+    }
+
+
+    .card-title{
+        background-color: rgba(247, 239, 239, 0.932);
+        width:100%;
+        border-radius: .25rem;
+        border-top: 1px solid rgba(0,0,0,.125);
+        border-bottom:1px solid rgba(0,0,0,.125);
+        padding: 15px 32px;
+        font-size: 15px;
+        text-overflow: clip;
+        text-align: center;
+    }
+
+    .card-name{
+        font-size: 15px;
+        text-overflow: clip;
+        text-align: center;
+        overflow: hidden;
+        width: 100%;
+    height: 20px;
+    }
+
+    .sub-title{
+      
+        padding: 10px 10px;
+    }

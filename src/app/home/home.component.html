@@ -1,0 +1,139 @@
+
+<header>
+    <img src="../../assets/images/banner.png" width = "100%" height ="200px"/>
+  
+    
+</header>
+
+
+
+
+<main> 
+    <div class = "search-area">
+
+      <form name="searchForm">
+        <h2 class= "sub-title"> Search Movies </h2>
+        <select class= "dropdown" (change)="onChange($event)">
+            <option class ="dropdown-content" value="default" selceted>Select search by</option>
+            <option class ="dropdown-content" value="mSearch" >Movie</option>
+            <option class ="dropdown-content" value="pSearch">People</option> 
+          </select>
+        <input type = "text"   placeholder = "
+        Search Movies" name="searchText" [(ngModel)]="textSearch" (focus) = setDefault() />
+     <button class="btn" (click)="searchMovie()">Find</button> 
+      
+          </form>
+    </div>
+
+    <div  *ngIf = "mSearch != null && findClick==true;" > 
+        <h2 class = "sub-title" >Movie Matches</h2>
+        <h4 *ngIf = "MSearchMovies?.length === 0" > No Results </h4>
+        <ul *ngFor="let search of MSearchMovies; let i = index">
+           
+              <li  *ngIf="i < 10" style="display:flex;">
+                <p class="card-title">
+                  {{ search.release_date | date:'mediumDate' }}</p>
+      
+                  <p>
+                  <img  src="https://image.tmdb.org/t/p/w500/{{ search.poster_path }}" alt="{{ search.original_title }}" style="height: 300px">
+                  </p>
+                  <p class="card-name">{{ search.original_title }}</p>
+                  <a class = "card-btn" routerLink="/movie/{{ search.id }}" href="#" >Movie Details</a>
+                
+              </li>
+        
+          </ul>
+          <hr >
+          </div>
+         
+          <div *ngIf = "pSearch != null && findClick==true"  >
+              <h2  class = "sub-title" >People Matches</h2>
+              <h4 *ngIf = " PSearchMovies?.length === 0" > No Results </h4>
+              <div *ngFor="let result of PSearchMovies; let i = index">  
+                      <ul *ngFor="let search of result.known_for; let j = index">
+                      <li style="display:flex;">
+                      <p class="card-title">
+                        {{ search.first_air_date }} {{ search.release_date }}</p>
+                        
+                        <p>
+                        <img  src="https://image.tmdb.org/t/p/w500/{{ search.poster_path }}" alt="{{search.original_name }} {{ search.original_title }}" style="height: 300px">
+                        </p>
+                        <p class="card-name">{{ search.original_name }} {{ search.original_title }}</p>
+                       <a class = "card-btn" routerLink="/movie/{{ search.id }}" href="#" >Movie Details</a> 
+                      </li>
+                      </ul>
+               </div>
+              <hr>
+          </div> 
+
+
+  <div>
+  <h2 class = "sub-title">Upcoming Movies</h2>
+ 
+  <ul *ngFor="let upcoming of upcomingMovies; let i = index">
+     <!-- <div *ngIf="i < 9"> -->
+        <li  *ngIf="i < 10" style="display:flex;">
+          <p class="card-title">
+            {{ upcoming.release_date | date:'mediumDate' }}</p>
+
+            <p>
+            <img  src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}" alt="{{ upcoming.original_title }}" style="height: 300px">
+            </p>
+            <p class="card-name">{{ upcoming.original_title }}</p>
+            <a class = "card-btn" routerLink="/movie/{{ upcoming.id }}" href="#" >Movie Details</a>
+          
+        </li>
+  
+    </ul>
+    <hr>
+    </div>
+<!---
+    <mdb-carousel [isControls]="true" *ngFor="let upcoming of upcomingMovies; " class="carousel-multi-item multi-animation" [type]="'carousel-multi-item'" [animation]="'slide'">
+     
+          <mdb-carousel-item>
+              <div class="col-md-4">
+                <mdb-card>
+                  <mdb-card-img src="https://image.tmdb.org/t/p/w500/{{ upcoming.poster_path }}" alt="{{ upcoming.original_title }}" style="height: 460px"></mdb-card-img>
+                  <mdb-card-body>
+                    <mdb-card-title>
+                      <h4>{{ upcoming.original_title }}</h4>
+                    </mdb-card-title>
+                    
+                    <a routerLink="/movie/{{ upcoming.id }}" href="#" mdbBtn color="primary" class="waves-light" mdbWavesEffect>Movie Details</a>
+                  </mdb-card-body>
+                </mdb-card>
+              </div>
+      </mdb-carousel-item>
+    </mdb-carousel> -->
+
+
+
+    <div>
+        <h2 class = "sub-title">Popular Movies</h2>
+       
+        <ul *ngFor="let popular of popularMovies; let i = index">
+              <li  *ngIf="i < 9" style="display:flex;">
+                <p class="card-title">
+                  {{ popular.release_date | date:'mediumDate' }}</p>
+      
+                  <p>
+                  <img  src="https://image.tmdb.org/t/p/w500/{{ popular.poster_path }}" alt="{{ popular.original_title }}" style="height: 300px">
+                  </p>
+                  <p class="card-name">{{ popular.original_title }}</p>
+                  <a class = "card-btn" routerLink="/movie/{{ popular.id }}" href="#" >Movie Details</a>
+                
+              </li>
+        
+          </ul>
+          <hr>
+          </div>
+</main>
+
+<aside> Aside </aside>
+<footer> Footer</footer>
+
+<div class ="row">
+  <div class="col-sm-12">
+    
+    </div>
+</div>
